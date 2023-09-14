@@ -1,4 +1,21 @@
-def get_column(file_name, query_column, query_value, result_column):
+def get_column(file_name, query_column, query_value, result_column='Area'):
+    """
+    Function: get_column(file_name, query_column, query_value, result_column='Area')
+    
+    Given a csv file that is comma separated and the name of a query column, query value, and result column,
+    search the csv file for the queried value and return the corresponding value in the result column.
+    Will return a list of results.
+    
+    Input:
+        file_name: csv file name
+        query_column: string of exact name of query column
+        query_value: string of value searching for
+        result_column: string of exact name of column to pull results from
+    
+    Output:
+        List of result column values if successful search
+        None if unsuccessful
+    """
     #Input validation
     if(result_column == query_column):
         print("Query column and result column are identical!")
