@@ -10,3 +10,8 @@ Function definition:
 my_utils.get_columns(file_name, query_column, query_value, result_column)
 
 All arguments must be passed in as a string. The function will express if the file is empty, if either the query or result column is not present, or if no results matching the query value are found. Will throw an error if the file name is not found.
+
+
+09/14/23 1:59PM:
+
+Fixed print_fires.py such that it uses get_column to display the number of fires in the United States by year 
