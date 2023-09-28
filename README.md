@@ -1,6 +1,35 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/oQi7O4AA)
 # python-refresher
 
+## get_column
+
+The code herein is centered around the function get_column in my_utils.py.  get_column is a function designed to take a csv file, a query column, a query value, and a results column. The program will read the csv file and search the query column for the given query value. The function will return a list of integers (if possible) of all the corresponding results column values for all the query matches. The script print_fires.py implements this function with command line arguments. Run run.sh to see example usage of the print_fires.py script.  
+
+print_fires.py Command Line Arguments:
+
+--querycol : The queried column
+
+--queryval : The value queried for in the query column
+
+--resultcolumn : Column to pull results from for matching queries
+
+--filename : Name of the csv file
+
+Example use: python print_fires.py --queryval Croatia --querycol Area --resultcol 'Forest fires' --filename Agrofood_co2_emission.csv
+
+This will output a integer list of the number of forest fires in Croatia recorded by year.
+
+Best Practices Changes:
+- Implemented argparse to better handle command line arguments
+- Removed print statements from get_column function
+- Updated docustring to proper formatting
+- Added main functions for both my_utils and print_fires
+- Cut down and split up long lines for readability
+
+
+
+Update Log:
+
 09/13/23 11:25AM:
 
 Created the get_columns function with some minor input validation. The function requires input of a csv file delimited by commas and with column titles in the first line of the file.
@@ -34,3 +63,7 @@ Minor print statement edit to print_fires.py and added run.sh that runs print_fi
 Updated print_fires.py to use command line arguments and changed get_column function in my_utils.py to return a list of integers. This was accomplished using try:except logic, converting every string entry to the list to a float and then an integer via python list comprehension. 
 Also removed print statements within the my_utils.py and tweaked print_fires.py to handle errors caught by get_column. If an input error is caught, get_column will return None. This removes specificity in pointing out the input errors, but removes side effects (print statements) from the get_column function.
 Additionally updated run.sh to use command line arguments and gave 3 examples of proper/improper use of the print_fires.py script.
+
+
+09/28/23 2:28PM:
+
