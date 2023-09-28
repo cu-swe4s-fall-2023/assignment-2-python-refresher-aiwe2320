@@ -1,7 +1,7 @@
 def get_column(file_name, query_column, query_value, result_column='Area'):
     """
     Function: get_column(file_name, query_column, query_value, result_column='Area')
-    
+
     Given a csv file that is comma separated and the name of a query column, query value, and result column,
     search the csv file for the queried value and return the corresponding value in the result column.
     Will return a list of results.
@@ -16,16 +16,11 @@ def get_column(file_name, query_column, query_value, result_column='Area'):
         List of result column values if successful search
         None if unsuccessful
     """
-    #Input validation
-    if(result_column == query_column):
-        print("Query column and result column are identical!")
-        return None
-    
     result_list = []
     
     with open(file_name,'r') as f:
         if not f:
-            print("File is empty!")
+            #print("File is empty!")
             return None
         else:
             query_ndx = -1
@@ -41,13 +36,13 @@ def get_column(file_name, query_column, query_value, result_column='Area'):
 
                     # Columns not found
                     if(query_ndx == -1 and result_ndx == -1):
-                        print('Query and result column names not found, please try again')
+                        #print('Query and result column names not found, please try again')
                         return None
                     elif(query_ndx == -1):
-                        print("Query column name not found, please try again")
+                        #print("Query column name not found, please try again")
                         return None
                     elif(result_ndx == -1):
-                        print("Result column name not found, please try again")
+                        #print("Result column name not found, please try again")
                         return None
 
                 # Check data in line
@@ -56,7 +51,12 @@ def get_column(file_name, query_column, query_value, result_column='Area'):
 
     # Check if results list is empty
     if not result_list:
-        print("No matching queries found")
+        #print("No matching queries found")
         return None
     else:
-        return result_list
+        try: # try to convert list to integers
+            result_float_list = [float(entry) for entry in result_list]
+            result_int_list = [int(entry) for entry in result_float_list]
+            return result_int_list
+        except:
+            return result_list
