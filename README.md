@@ -27,3 +27,10 @@ get_column only takes strings as parameters.  The desired query and result colum
 09/14/23 2:25PM:
 
 Minor print statement edit to print_fires.py and added run.sh that runs print_fires.py.
+
+
+09/28/23 11:07AM:
+
+Updated print_fires.py to use command line arguments and changed get_column function in my_utils.py to return a list of integers. This was accomplished using try:except logic, converting every string entry to the list to a float and then an integer via python list comprehension. 
+Also removed print statements within the my_utils.py and tweaked print_fires.py to handle errors caught by get_column. If an input error is caught, get_column will return None. This removes specificity in pointing out the input errors, but removes side effects (print statements) from the get_column function.
+Additionally updated run.sh to use command line arguments and gave 3 examples of proper/improper use of the print_fires.py script.
