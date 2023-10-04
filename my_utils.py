@@ -71,9 +71,127 @@ def get_column(file_name, query_column, query_value, result_column='Area'):
             return result_list
 
 
+def mean(arr):
+    """Calculate the mean of a list of values
+
+    Parameters
+    ----------
+    arr : list
+        List of values, can be of mixed type
+
+    Returns
+    -------
+    mean
+        Arithmetic mean of numerical values in list
+        None if no numbers found or list empty
+
+    """
+    if arr:
+        total = 0
+        count = 0
+        for val in arr:
+            try:
+                num = float(val)
+                total += num
+                count += 1
+            except Exception as e:
+                continue  # Skip over strings
+        # Calculate mean, return if nonzero
+        if count > 0:
+            mean = total / count
+            return mean
+        else:
+            return None  # No numerical entries
+    else:  # If arr is empty
+        return None
+
+
+def median(arr):
+    """Find the median of a list of values
+
+    Parameters
+    ----------
+    arr : list
+        List of values, can be of mixed type
+
+    Returns
+    -------
+    median
+        Median of numerical values in list
+        None if no numbers found or list empty
+
+    """
+    # Get list of numerical entries
+    temp = []
+    for val in arr:
+        try:
+            num = float(val)
+            temp.append(num)
+        except Exception as e:
+            continue
+    if temp:
+        # Sort list of numbers using built in Python list sorting
+        sortlist = sorted(temp)
+        llen = len(temp)
+        if llen % 2 == 0:  # Even length
+            low_ndx = (llen - 1) // 2  # Use int division to get floored value
+            low_num = sortlist[low_ndx]
+            high_num = sortlist[low_ndx + 1]
+            median = (low_num + high_num) / 2
+        else:  # Odd length
+            ndx = (llen - 1) // 2
+            median = sortlist[ndx]
+        return median
+    else:
+        return None
+
+
+def stdeviation(arr):
+    """Calculate the standard deviation of a list of values
+
+    Parameters
+    ----------
+    arr : list
+        List of values, can be of mixed type
+
+    Returns
+    -------
+    median
+        Standard deviation of numerical values in list
+        None if no numbers found or list empty
+
+    """
+    # Must use mean function
+    avg = mean(arr)
+    if avg is None:
+        return None
+    else:
+        if arr:
+            running_sum = 0
+            N = 0
+            for val in arr:
+                try:  # Calculate contribution to sum
+                    x = float(val)
+                    running_sum += pow((x - avg), 2)
+                    N += 1
+                except Exception as e:  # Ignore string inputs
+                    continue
+            if N > 0:
+                stdev = pow((running_sum / N), 0.5)
+                return stdev
+            else:
+                return None
+        else:
+            return None
+
+
 def main():
     print("my_utils.py Library:")
-    print("   get_column(file_name, query_column, query_value, result_column)")
+    print("    get_column(file_name, query_column, "
+          "query_value, result_column)")
+    print("    mean(arr)")
+    print("    median(arr)")
+    print("    stdeviation(arr)")
 
 
 if __name__ == '__main__':
