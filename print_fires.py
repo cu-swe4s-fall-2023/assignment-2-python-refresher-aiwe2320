@@ -6,7 +6,7 @@ def main():
     parser = argparse.ArgumentParser(
                 description='Usage: print_fires.py --queryval QUERY_VALUE'
                             '--querycol QUERY_COLUMN --resultcol RESULT_COLUMN'
-                            '--filename FILE_NAME',
+                            '--filename FILE_NAME --stat STATISTIC',
                 prog='print_fires')
 
     parser.add_argument('--filename',
@@ -29,11 +29,33 @@ def main():
                         help='Column containing desired results',
                         required=True)
 
+    parser.add_argument('--stat',
+                        type=str,
+                        help='Statistical value to return',
+                        required=False)
+
     args = parser.parse_args()
     country = args.queryval
     country_column = args.querycol
     fires_column = args.resultcol
     file_name = args.filename
+
+    statistic = None
+    try:
+        statistic = args.stat
+    except Exception as e:
+        statistic = None
+
+    mean_flag = False
+    median_flag = False
+    stdev_flag = False
+
+    if statistic == 'mean':
+        mean_flag = True
+    elif statistic == 'median':
+        median_flag = True
+    elif statistic == 'stdev':
+        stdev_flag = True
 
     # Input validation
     if(country_column == fires_column):
@@ -56,10 +78,32 @@ def main():
         print("ERROR: Unable to process command inputs")
         sys.exit(1)
     else:
-        print(f'Total Forest Fires in {country} by Year:')
-        print("Year: Fires")
-        for i, item in enumerate(forest_fires):
-            print(f'{year_list[i]}: {item}')
+        if mean_flag:
+            print("Mean of Data:")
+            mean = my_utils.mean(forest_fires)
+            if mean is not None:
+                print(mean)
+            else:
+                print("ERROR: Could not calculate mean")
+        elif median_flag:
+            print("Median of Data:")
+            med = my_utils.median(forest_fires)
+            if med is not None:
+                print(med)
+            else:
+                print("ERROR: Could not calculate median")
+        elif stdev_flag:
+            print("Standard Deviation of Data:")
+            stdev = my_utils.stdeviation(forest_fires)
+            if stdev is not None:
+                print(stdev)
+            else:
+                print("ERROR: Could not calculate standard deviation")
+        elif statistic is None:
+            print(f'Total Forest Fires in {country} by Year:')
+            print("Year: Fires")
+            for i, item in enumerate(forest_fires):
+                print(f'{year_list[i]}: {item}')
 
 
 if __name__ == '__main__':
