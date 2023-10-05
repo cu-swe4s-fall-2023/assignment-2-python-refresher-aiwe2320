@@ -73,3 +73,8 @@ Implemented best practices using pycodestyle as a guide, as well as lecture note
 10/4/23  4:05PM:
 
 Implemented statistical functions to calculate mean, median, and standard deviation from a list.  Statistical functions return None if unusable input.
+
+
+10/4/23 6:45PM:
+
+Implemented 12 unit tests to test the functionality of the statistical functions implemented in my_utils. 
