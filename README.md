@@ -15,7 +15,10 @@ print_fires.py Command Line Arguments:
 
 --filename : Name of the csv file
 
-Example use: python print_fires.py --queryval Croatia --querycol Area --resultcol 'Forest fires' --filename Agrofood_co2_emission.csv
+Example use:
+```
+python print_fires.py --queryval Croatia --querycol Area --resultcol 'Forest fires' --filename Agrofood_co2_emission.csv
+```
 
 This will output a integer list of the number of forest fires in Croatia recorded by year.
 
@@ -31,11 +34,14 @@ Implemented statistical functions in my_utils and added an optional statistics f
 
 
 To run the new unit and functional tests from the main directory, run the following commands:
-'''
-python -m unittest assign4_testing/test/unit/test_my_utils.py
 
-source assign4_testing/test/functional/test_print_fires.sh
-'''
+```
+cd assign4_testing/test/unit
+python -m unittest test_my_utils.py
+
+cd assign4_testing/test/functional
+source test_print_fires.sh
+```
 
 
 Update Log:
