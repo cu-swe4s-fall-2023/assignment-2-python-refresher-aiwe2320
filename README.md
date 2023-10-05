@@ -26,7 +26,8 @@ Best Practices Changes:
 - Added main functions for both my_utils and print_fires
 - Cut down and split up long lines for readability
 
-
+Assignment 4 Changes:
+Implemented statistical functions in my_utils and added an optional statistics flag (--stat) to print_fires to calculate the mean, median, or standard deviation of the data returned by the get_column function.  This methodology works broadly for any list and will return a value as long as there is at least one numerical entry in the list.  To test these changes to the my_utils and print_fires infrastructure, utilized unit and functional tests to evaluate function/program operations on different scenarios.  Used unit testing to test the statistical functions using uniform random distributions of integers and comparing calculated results to known statistical characteristics of a uniform distribution.  Additionally used functional testing and the Stupid Simple Bash Testing infrastructure to test varying edge cases of print_fires using a test csv file.
 
 Update Log:
 
