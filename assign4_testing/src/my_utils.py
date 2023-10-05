@@ -38,9 +38,9 @@ def get_column(file_name, query_column, query_value, result_column='Area'):
                 temp = line.split(',')
                 if(i == 0):  # If reading first line, find array indices
                     for j, col in enumerate(temp):
-                        if(col == query_column):
+                        if(col.strip() == query_column):
                             query_ndx = j  # Query column array index
-                        elif(col == result_column):
+                        elif(col.strip() == result_column):
                             result_ndx = j
 
                     # Columns not found
@@ -56,7 +56,7 @@ def get_column(file_name, query_column, query_value, result_column='Area'):
 
                 # Check data in line
                 if(temp[query_ndx] == query_value):
-                    result_list.append(temp[result_ndx])
+                    result_list.append(temp[result_ndx].strip())
 
     # Check if results list is empty
     if not result_list:

@@ -1,7 +1,8 @@
 def main():
-    import my_utils
-    import sys
     import argparse
+    import sys
+    sys.path.insert(0, '../../src')  # noqa
+    import my_utils
 
     parser = argparse.ArgumentParser(
                 description='Usage: print_fires.py --queryval QUERY_VALUE'
