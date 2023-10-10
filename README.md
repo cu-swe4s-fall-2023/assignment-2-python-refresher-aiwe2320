@@ -30,6 +30,7 @@ Best Practices Changes:
 - Cut down and split up long lines for readability
 
 Assignment 4 Changes:
+
 Implemented statistical functions in my_utils and added an optional statistics flag (--stat) to print_fires to calculate the mean, median, or standard deviation of the data returned by the get_column function.  This methodology works broadly for any list and will return a value as long as there is at least one numerical entry in the list.  To test these changes to the my_utils and print_fires infrastructure, utilized unit and functional tests to evaluate function/program operations on different scenarios.  Used unit testing to test the statistical functions using uniform random distributions of integers and comparing calculated results to known statistical characteristics of a uniform distribution.  Additionally used functional testing and the Stupid Simple Bash Testing infrastructure to test varying edge cases of print_fires using a test csv file.
 
 
@@ -42,6 +43,11 @@ python -m unittest test_my_utils.py
 cd assign4_testing/test/functional
 source test_print_fires.sh
 ```
+
+
+Assignment 5 Changes:
+
+Implemented continuous integration through the inclusion of a .github/workflows directory.  The file tests.yml specifies that whenever a pull request or push to the master branch is done, unit tests, functional tests, and pycodestyle tests of my_utils.py and print_fires.py will be done.  This is to ensure functionality and best practices are maintained whenever changes are made.  The current CI setup utilizes conda to initialize an environment with pycodestyle, but this is slow and should be replaced with mamba to improve speeds.  Otherwise, all of the testing is conducted using ubuntu-latest as the shell.
 
 
 Update Log:
