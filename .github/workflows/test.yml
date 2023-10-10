@@ -6,7 +6,7 @@ on:
         branches: [ master ]
 jobs:
     run_unit_tests:
-        runs_on: ubuntu-latest
+        runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
             - uses: 
@@ -14,14 +14,14 @@ jobs:
                 cd assign4_testing/test/unit
                 python -m unittest test_my_utils.py
     run_func_tests:
-        runs_on: ubuntu-latest
+        runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
             - run: |
                 cd assign4_testing/test/functional
                 source test_print_fires.sh
     run_style_check:
-        runs_on: ubuntu-latest
+        runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
             - run: |
