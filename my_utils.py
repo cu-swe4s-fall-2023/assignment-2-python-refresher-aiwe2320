@@ -36,26 +36,26 @@ def get_column(file_name, query_column, query_value, result_column='Area'):
             result_ndx = -1
             for i, line in enumerate(f):  # Open file and parse line by line
                 temp = line.split(',')
-                if(i == 0):  # If reading first line, find array indices
+                if (i == 0):  # If reading first line, find array indices
                     for j, col in enumerate(temp):
-                        if(col.strip() == query_column):
+                        if (col.strip() == query_column):
                             query_ndx = j  # Query column array index
-                        elif(col.strip() == result_column):
+                        elif (col.strip() == result_column):
                             result_ndx = j
 
                     # Columns not found
-                    if(query_ndx == -1 and result_ndx == -1):
+                    if (query_ndx == -1 and result_ndx == -1):
                         # Query and result column names not found
                         return None
-                    elif(query_ndx == -1):
+                    elif (query_ndx == -1):
                         # Query column name not found
                         return None
-                    elif(result_ndx == -1):
+                    elif (result_ndx == -1):
                         # Result column name not found
                         return None
 
                 # Check data in line
-                if(temp[query_ndx] == query_value):
+                if (temp[query_ndx] == query_value):
                     result_list.append(temp[result_ndx].strip())
 
     # Check if results list is empty

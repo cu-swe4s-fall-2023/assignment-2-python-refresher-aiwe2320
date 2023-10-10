@@ -58,7 +58,7 @@ def main():
         stdev_flag = True
 
     # Input validation
-    if(country_column == fires_column):
+    if (country_column == fires_column):
         print("Query column and result column are identical!")
         sys.exit(1)
 
@@ -74,7 +74,7 @@ def main():
                                     query_value=country,
                                     result_column=year_col_name)
 
-    if(forest_fires is None):
+    if (forest_fires is None):
         print("ERROR: Unable to process command inputs")
         sys.exit(1)
     else:
