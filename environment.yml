@@ -1,0 +1,5 @@
+name: assign5
+channels:
+  - conda-forge
+dependencies:
+  - pycodestyle

@@ -23,6 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate_environment: assign5
+          environment-file: environment.yml
       - run: |
           pycodestyle my_utils.py
           pycodestyle print_fires.py
