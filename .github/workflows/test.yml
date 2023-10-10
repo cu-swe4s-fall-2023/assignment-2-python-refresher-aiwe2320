@@ -1,11 +1,9 @@
 name: Tests
-
 on:
     push:
         branches: [ master ]
     pull_request:
         branches: [ master ]
-
 jobs:
     run_unit_tests:
         runs_on: ubuntu-latest
@@ -15,7 +13,6 @@ jobs:
             - run: |
                 cd assign4_testing/test/unit
                 python -m unittest test_my_utils.py
-
     run_func_tests:
         runs_on: ubuntu-latest
         steps:
@@ -23,7 +20,6 @@ jobs:
             - run: |
                 cd assign4_testing/test/functional
                 source test_print_fires.sh
-                
     run_style_check:
         runs_on: ubuntu-latest
         steps:
