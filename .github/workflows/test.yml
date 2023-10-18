@@ -28,6 +28,6 @@ jobs:
       - uses: actions/checkout@v2
       - uses: mamba-org/setup-micromamba@v1
         with:
-          activate_environment: assign5
+          activate_environment: assign6
           environment-file: environment.yml
       - run: pycodestyle $(git ls-files "*.py")
