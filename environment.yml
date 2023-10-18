@@ -1,8 +1,9 @@
 name: assign5
 channels:
   - conda-forge
+  - bioconda
 dependencies:
   - pycodestyle
   - snakemake
   - graphviz
-  - matplotlib-base
+  - matplotlib
