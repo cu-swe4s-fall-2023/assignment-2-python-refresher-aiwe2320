@@ -26,7 +26,7 @@ jobs:
         shell: bash -el {0}
     steps:
       - uses: actions/checkout@v2
-      - uses: conda-incubator/setup-miniconda@v2
+      - uses: mamba-org/setup-minimamba@v1
         with:
           activate_environment: assign5
           environment-file: environment.yml
