@@ -3,3 +3,6 @@ channels:
   - conda-forge
 dependencies:
   - pycodestyle
+  - snakemake
+  - graphviz
+  - matplotlib-base
