@@ -44,4 +44,4 @@ jobs:
           environment-file: environment.yml
       - run: |
           cd assign6_plotting/test/func
-          source test_plotting.sh
+          bash test_plotting.sh
