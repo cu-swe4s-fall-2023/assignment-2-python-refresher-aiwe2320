@@ -5,5 +5,4 @@ channels:
 dependencies:
   - pycodestyle
   - snakemake
-  - graphviz
   - matplotlib
