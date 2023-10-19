@@ -31,7 +31,7 @@ jobs:
           activate_environment: assign6
           environment-file: environment.yml
       - run: pycodestyle $(git ls-files "*.py")
-  run_style_check:
+  run_plotting_tests:
     runs-on: ubuntu-latest
     defaults:
       run:
