@@ -50,6 +50,22 @@ Assignment 5 Changes:
 Implemented continuous integration through the inclusion of a .github/workflows directory.  The file tests.yml specifies that whenever a pull request or push to the master branch is done, unit tests, functional tests, and pycodestyle tests of my_utils.py and print_fires.py will be done.  This is to ensure functionality and best practices are maintained whenever changes are made.  The current CI setup utilizes conda to initialize an environment with pycodestyle, but this is slow and should be replaced with mamba to improve speeds.  Otherwise, all of the testing is conducted using ubuntu-latest as the shell.
 
 
+
+Assignment 6 Changes:
+
+I conducted an analysis of Australian forest fires versus total emissions.  To see the raw data and plots referenced here, see the directory /assign6_plotting/manual_analysis.
+
+A histogram (AUS_fires.png) describing the frequency of forest fires showed that the distribution of fire frequency from 1990 to 2020 had a heavy tail.  The majority of years had a number of fires between 0 and about 4000 fires, with only about 25% of years having more than 4000 fires.
+
+A scatter plot (AUS_emissions-year.png) of emissions versus year showed that Australia's total emissions had an overall downward trend over time.  However, there was significant variability in emissions, increasing or decreasing from year to year with no discernable pattern.  
+
+A scatter plot (AUS_fires-year.png) of fores fire count versus year showed that Australia's number of fores fires was relatively consistent from 1990 to 2018, but spiked in 2019 and 2020.  The data analysis described herein cannot explain this spike and these years are likely outliers by chance or due to some cause not captured in this analysis.
+
+A scatter plot (AUS_fires-emissions_scatter.png) of forest fire count versus total emissions suggests that the number of fires in Australia is independent of that year's total emissions.  Besides a few outliers, most of the data clumped in the same range of forest fire count irrespective of the total emissions value. 
+
+Overall, this analysis of forest fires and total emissions by year in Australia is inconclusive.  There is no significant evidence to suggest that these variables are related year to year.  Expanding this analysis to other fire types (e.x. savanna fires) and specific energy and emissions data (e.x. agricultural electricity use) is needed to determine if there is any link between annual emissions and fires in Australia.
+
+
 Update Log:
 
 09/13/23 11:25AM:
