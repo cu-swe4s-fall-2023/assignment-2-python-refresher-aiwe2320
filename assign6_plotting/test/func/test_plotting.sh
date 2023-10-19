@@ -1,7 +1,7 @@
 test -e ssshtest || wget -q https://raw.githubusercontent.com/ryanlayer/ssshtest/master/ssshtest
 . ssshtest
 
-run test_get_data python ../../src/get_data.py --datafile ../../../Agrofood_co2_emission.csv --outfile Australia_fires.txt --country Australia --x_datacol 'Forest fires' --y_datacol 'total_emission'
+run test_get_data python ../../src/get_data.py --datafile ../../data/Agrofood_co2_emission.csv --outfile Australia_fires.txt --country Australia --x_datacol 'Forest fires' --y_datacol 'total_emission'
 assert_equal $"Australia_fires.txt" $( ls $"Australia_fires.txt" )
 assert_exit_code 0
 
