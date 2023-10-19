@@ -1,7 +1,6 @@
 def main():
     import sys
     import argparse
-    sys.path.insert(0, '../../.')  # noqa
     import my_utils
 
     parser = argparse.ArgumentParser(
