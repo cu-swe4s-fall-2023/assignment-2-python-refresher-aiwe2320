@@ -31,3 +31,17 @@ jobs:
           activate_environment: assign6
           environment-file: environment.yml
       - run: pycodestyle $(git ls-files "*.py")
+  run_style_check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -el {0}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: mamba-org/setup-micromamba@v1
+        with:
+          activate_environment: assign6
+          environment-file: environment.yml
+      - run: |
+          cd assign6_plotting/test/func
+          source test_plotting.sh

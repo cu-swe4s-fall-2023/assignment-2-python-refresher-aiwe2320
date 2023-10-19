@@ -53,7 +53,7 @@ Implemented continuous integration through the inclusion of a .github/workflows 
 
 Assignment 6 Changes:
 
-I conducted an analysis of Australian forest fires versus total emissions.  To see the raw data and plots referenced here, see the directory /assign6_plotting/manual_analysis.
+I conducted an analysis of Australian forest fires versus total emissions.  To see the raw data and plots referenced here, see the directory /assign6_plotting/manual_analysis
 
 A histogram (AUS_fires.png) describing the frequency of forest fires showed that the distribution of fire frequency from 1990 to 2020 had a heavy tail.  The majority of years had a number of fires between 0 and about 4000 fires, with only about 25% of years having more than 4000 fires.
 
@@ -64,6 +64,32 @@ A scatter plot (AUS_fires-year.png) of fores fire count versus year showed that 
 A scatter plot (AUS_fires-emissions_scatter.png) of forest fire count versus total emissions suggests that the number of fires in Australia is independent of that year's total emissions.  Besides a few outliers, most of the data clumped in the same range of forest fire count irrespective of the total emissions value. 
 
 Overall, this analysis of forest fires and total emissions by year in Australia is inconclusive.  There is no significant evidence to suggest that these variables are related year to year.  Expanding this analysis to other fire types (e.x. savanna fires) and specific energy and emissions data (e.x. agricultural electricity use) is needed to determine if there is any link between annual emissions and fires in Australia.
+
+Manual Commands: This analysis was conducted using the python scripts get_data.py, scatter.py, and hist.py.  These files can be found in /assign6_plotting/src
+
+Data generation:
+```
+python get_data.py --datafile Agrofood_co2_emission.csv --outfile Australia_fires.txt --country Australia --x_datacol 'Forest fires' --y_datacol 'total_emission'
+```
+
+Plot generation:
+```
+python hist.py --datafile Australia_fires.txt --data_label 'Number of Forest Fires' --col_ndx 1 --title 'Australian Forest Fires' --outfile 'AUS_fires.png'
+
+python scatter.py --datafile Australia_fires.txt --x_col 0 --y_col 2 --x_label 'Year' --y_label 'Total Emissions' --title 'Australian Total Emissions by Year' --outfile 'AUS_emissions-year.png'
+
+python scatter.py --datafile Australia_fires.txt --x_col 0 --y_col 1 --x_label 'Year' --y_label 'Number of Forest Fires' --title 'Australian Forest Fires by Year' --outfile 'AUS_fires-year.png'
+
+python scatter.py --datafile Australia_fires.txt --x_col 2 --y_col 1 --x_label 'Total Emissions' --y_label 'Number Forest Fires' --title 'Australian Forest Fire Count vs Total Emissions' --outfile 'AUS_fires-emissions_scatter.png'
+```
+
+See /assign6_plotting/src for a Snakemake file that reproduces this analysis automatically. To run this snakemake file, run:
+```
+cd assign6_plotting/src
+snakemake --cores 1
+```
+
+In addition, I added more functional tests to assert the plotting scripts output files correctly in line with the assignment 6 requirements.
 
 
 Update Log:
