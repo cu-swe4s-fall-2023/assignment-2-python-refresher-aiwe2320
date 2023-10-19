@@ -2,7 +2,6 @@ def main():
     import my_utils
     import sys
     import argparse
-    import matplotlib
 
     parser = argparse.ArgumentParser(
                 description='Usage: print_fires.py --queryval QUERY_VALUE'
